@@ -31,6 +31,8 @@ class Course extends Model
     }
 
     public function courseSections()
+
+
     {
         return $this->hasMany(CourseSection::class, 'course_id');
     }
