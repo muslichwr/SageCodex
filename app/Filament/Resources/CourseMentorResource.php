@@ -5,10 +5,15 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CourseMentorResource\Pages;
 use App\Filament\Resources\CourseMentorResource\RelationManagers;
 use App\Models\CourseMentor;
+use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -24,6 +29,30 @@ class CourseMentorResource extends Resource
         return $form
             ->schema([
                 //
+                Select::make('course_id')
+                ->relationship('course', 'name')
+                ->searchable()
+                ->preload()
+                ->required(),
+
+                Select::make('user_id')
+                ->label('Mentor')
+                ->options(function() {
+                    return User::role('mentor')->pluck('name', 'id');
+                })
+                ->searchable()
+                ->preload()
+                ->required(),
+
+                TextInput::make('about')
+                ->required(),
+
+                Select::make('is_active')
+                ->options([
+                    true => 'Active',
+                    false => 'Banned',
+                ])
+                ->required(),
             ]);
     }
 
@@ -32,6 +61,17 @@ class CourseMentorResource extends Resource
         return $table
             ->columns([
                 //
+                ImageColumn::make('mentor.photo'),
+
+                TextColumn::make('mentor.name')
+                ->searchable()
+                ->sortable(),
+
+                ImageColumn::make('course.thumbnail'),
+
+                TextColumn::make('course.name')
+                ->searchable()
+                ->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
