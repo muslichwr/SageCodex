@@ -47,9 +47,12 @@ class UserResource extends Resource
 
                 Select::make('occupation')
                 ->options([
-                    'Developer' => 'Developer',
-                    'Designer' => 'Designer',
-                    'Project Manager' => 'Project Manager',
+                    'Coach' => 'Coach',
+                    'Professional Player' => 'Professional Player',
+                    'Ex-Professional Player' => 'Ex-Professional Player',
+                    'Streamer' => 'Streamer',
+                    'Student' => 'Student',
+                    'Content Creator' => 'Content Creator',
                 ])
                 ->required(),
 

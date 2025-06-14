@@ -15,7 +15,7 @@ class SectionContent extends Model
         'content'
     ];
 
-    public function courseSections()
+    public function courseSection()
     {
         return $this->belongsTo(CourseSection::class, 'course_section_id');
     }

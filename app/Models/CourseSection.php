@@ -12,7 +12,7 @@ class CourseSection extends Model
     protected $fillable = [
         'name',
         'course_id',
-        'position'
+        'position',
     ];
 
     public function course()
