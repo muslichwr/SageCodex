@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pricing extends Model
@@ -15,7 +16,7 @@ class Pricing extends Model
         'price'
     ];
 
-    public function transactions()
+    public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
     }
@@ -26,6 +27,6 @@ class Pricing extends Model
             ->where('user_id', $userId)
             ->where('is_paid', true)
             ->where('ended_at', '>=', now())
-            ->exist();
+            ->exists();
     }
 }

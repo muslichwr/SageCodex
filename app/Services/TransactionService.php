@@ -26,9 +26,9 @@ class TransactionService
         $alreadySubscribed = $pricing->isSubscribedByUser($user->id);
 
         $tax = 0.12;
-        $total_max_amount = $pricing->price * $tax;
+        $total_tax_amount = $pricing->price * $tax;
         $sub_total_amount = $pricing->price;
-        $grand_total_amount = $sub_total_amount + $total_max_amount;
+        $grand_total_amount = $sub_total_amount + $total_tax_amount;
 
         $started_at = now();
         $ended_at = $started_at->copy()->addMonth($pricing->duration);
@@ -41,7 +41,7 @@ class TransactionService
             'sub_total_amount',
             'pricing',
             'user',
-            'already_subscribed',
+            'alreadySubscribed',
             'started_at',
             'ended_at',
         );
@@ -52,6 +52,7 @@ class TransactionService
         $pricingId = session()->get('pricing_id');
 
         return $this->pricingRepository->findById($pricingId);
+
     }
 
     public function getUserTransactions()
