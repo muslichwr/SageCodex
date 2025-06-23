@@ -2,95 +2,94 @@
 @section('title', 'Success Checkout - Obito BuildWithAngga')
 @section('content')
     <x-navigation-auth />
-    <nav id="bottom-nav" class="flex w-full bg-white border-b border-obito-grey py-[14px]">
-        <ul class="flex w-full max-w-[1280px] px-[75px] mx-auto gap-3">
-            <li class="group">
-                <a href="#"
-                    class="flex items-center gap-2 rounded-full border border-obito-grey py-2 px-[14px] hover:border-obito-green bg-white transition-all duration-300 group-[.active]:bg-obito-light-green group-[.active]:border-obito-light-green">
-                    <img src="{{ asset('assets/images/icons/home-trend-up.svg') }}" class="flex shrink-0 w-5" alt="icon">
-                    <span>Overview</span>
-                </a>
-            </li>
-            <li class="group">
-                <a href="{{ route('dashboard') }}"
-                    class="flex items-center gap-2 rounded-full border border-obito-grey py-2 px-[14px] hover:border-obito-green bg-white transition-all duration-300 group-[.active]:bg-obito-light-green group-[.active]:border-obito-light-green">
-                    <img src="{{ asset('assets/images/icons/note-favorite.svg') }}" class="flex shrink-0 w-5" alt="icon">
-                    <span>Courses</span>
-                </a>
-            </li>
-            <li class="group">
-                <a href="#"
-                    class="flex items-center gap-2 rounded-full border border-obito-grey py-2 px-[14px] hover:border-obito-green bg-white transition-all duration-300 group-[.active]:bg-obito-light-green group-[.active]:border-obito-light-green">
-                    <img src="{{ asset('assets/images/icons/message-programming.svg') }}" class="flex shrink-0 w-5" alt="icon">
-                    <span>Quizzess</span>
-                </a>
-            </li>
-            <li class="group">
-                <a href="#"
-                    class="flex items-center gap-2 rounded-full border border-obito-grey py-2 px-[14px] hover:border-obito-green bg-white transition-all duration-300 group-[.active]:bg-obito-light-green group-[.active]:border-obito-light-green">
-                    <img src="{{ asset('assets/images/icons/cup.svg') }}" class="flex shrink-0 w-5" alt="icon">
-                    <span>Certificates</span>
-                </a>
-            </li>
-            <li class="group">
-                <a href="#"
-                    class="flex items-center gap-2 rounded-full border border-obito-grey py-2 px-[14px] hover:border-obito-green bg-white transition-all duration-300 group-[.active]:bg-obito-light-green group-[.active]:border-obito-light-green">
-                    <img src="{{ asset('assets/images/icons/ruler&pen.svg') }}" class="flex shrink-0 w-5" alt="icon">
-                    <span>Portfolios</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <main class="flex justify-center py-5 flex-1 items-center">
-        <div class="w-[500px] flex flex-col gap-[30px]">
-            <div class="flex flex-col gap-[10px]">
-                <div class="rounded-full !w-fit mx-auto py-2 px-[14px] bg-obito-light-green flex items-center gap-[6px]">
-                    <img src="{{ asset('assets/images/icons/crown-green.svg') }}" alt="icon" class="size-[20px] shrink-0" />
-                    <p class="font-bold text-sm leading-[21px]">PRO UNLOCKED</p>
-                </div>
-                <h1 class="font-bold text-[28px] leading-[42px] text-center">Payment Successful</h1>
-                <p class="text-center leading-[28px] text-obito-text-secondary">Anda telah memiliki akses kelas materi
-                    terbaru sebagai persiapan bekerja di era digital industri saat ini, yay!</p>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="border-b border-neutral-light dark:border-neutral-dark py-3">
+        <div class="max-w-7xl px-4 mx-auto">
+            <div class="flex items-center gap-2 text-sm">
+                <a href="{{ route('front.index') }}" class="text-neutral-dark dark:text-neutral-light hover:text-brand-primary">Home</a>
+                <i class="fas fa-chevron-right text-xs text-neutral-dark dark:text-neutral-light"></i>
+                <a href="{{ route('front.pricing') }}"
+                    class="text-neutral-dark dark:text-neutral-light hover:text-brand-primary">Pricing</a>
+                <i class="fas fa-chevron-right text-xs text-neutral-dark dark:text-neutral-light"></i>
+                <a href="{{ route('front.checkout', $pricing) }}"
+                    class="text-neutral-dark dark:text-neutral-light hover:text-brand-primary">Checkout</a>
+                <i class="fas fa-chevron-right text-xs text-neutral-dark dark:text-neutral-light"></i>
+                <span class="text-brand-primary">Success</span>
             </div>
-            <section id="card"
-                class="relative rounded-[20px] border border-obito-grey p-[10px] flex items-center gap-4 bg-white">
-                <div class="flex items-center justify-center rounded-[14px] overflow-hidden w-[180px] h-[130px]">
-                    <img src="{{ asset('assets/images/thumbnails/succes-checkout.png') }}" alt="image"
-                        class="w-full h-full object-cover" />
+        </div>
+    </div>
+
+    <!-- Success Content -->
+    <main class="flex flex-col items-center justify-center py-16 px-4">
+        <div class="w-full max-w-xl bg-white dark:bg-neutral-darker rounded-2xl shadow-lg p-8 text-center">
+            <!-- Success Icon -->
+            <div class="flex justify-center mb-6">
+                <div class="w-24 h-24 rounded-full bg-brand-primary bg-opacity-10 flex items-center justify-center">
+                    <i class="fas fa-check-circle text-5xl text-amber-400"></i>
                 </div>
-                <div class="flex flex-col gap-[10px]">
-                    <h2 class="font-bold">
-                        Subscription Active: <br />
-                        {{ $pricing->name }}
-                    </h2>
-                    <div class="flex items-center gap-[6px]">
-                        <img src="{{ asset('assets/images/icons/calendar-green.svg') }}" alt="icon" class="size-[20px] shrink-0" />
-                        <p class="text-obito-text-secondary text-sm leading-[21px]">{{ $pricing->duration }} Months Access</p>
-                    </div>
-                    <div class="flex items-center gap-[6px]">
-                        <img src="{{ asset('assets/images/icons/briefcase-green.svg') }}" alt="icon" class="size-[20px] shrink-0" />
-                        <p class="text-obito-text-secondary text-sm leading-[21px]">Job-Ready Skills</p>
-                    </div>
+            </div>
+
+            <!-- Success Message -->
+            <h1 class="font-bold text-3xl mb-4 gaming-gradient bg-clip-text text-transparent">Payment Successful!</h1>
+            <p class="text-neutral-dark dark:text-neutral-light text-lg mb-6">Your                         {{ $pricing->name }}
+                subscription has been activated
+                successfully.</p>
+
+            <!-- Order Details -->
+            <div class="bg-neutral-lightest dark:bg-neutral-darkest rounded-xl p-6 mb-6">
+                <div class="flex justify-between mb-3">
+                    <span class="text-neutral-dark dark:text-neutral-light">Order ID:</span>
+                    <span class="font-semibold">#SG-123456</span>
                 </div>
-                <img src="{{ asset('assets/images/icons/cup-green-fill.svg') }}" alt="icon"
-                    class="absolute top-1/2 right-0 size-[50px] shrink-0 -translate-y-1/2 translate-x-1/2" />
-            </section>
-            <div class="flex items-center gap-[14px] mx-auto">
-                <a href="{{ route('dashboard.subscriptions') }}">
-                    <div
-                        class="flex items-center px-5 justify-center border border-obito-grey rounded-full py-[10px] bg-white hover:border-obito-green transition-all duration-300">
-                        <p class="font-semibold">My Transactions</p>
-                    </div>
+                <div class="flex justify-between mb-3">
+                    <span class="text-neutral-dark dark:text-neutral-light">Amount Paid:</span>
+                    <span class="font-semibold">$109.98</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-neutral-dark dark:text-neutral-light">Payment Method:</span>
+                    <span class="font-semibold">Credit Card (•••• 4242)</span>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <p class="text-neutral-dark dark:text-neutral-light mb-8">We've sent a confirmation email to your registered
+                email address.</p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{{ route('dashboard.subscriptions') }}"
+                    class="bg-brand-primary hover:bg-brand-primary-dark text-white font-semibold py-3 px-8 rounded-full transition-all duration-300">
+                    View Subscription
                 </a>
-                <a href="{{ route('dashboard') }}">
-                    <div
-                        class="flex items-center px-5 justify-center text-white rounded-full py-[10px] bg-obito-green hover:drop-shadow-effect transition-all duration-300">
-                        <p class="font-semibold">Start Learning</p>
-                    </div>
+                <a href="{{ route('dashboard') }}"
+                    class="border border-neutral-light dark:border-neutral-dark hover:border-brand-primary text-neutral-dark dark:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300">
+                    Browse Courses
                 </a>
             </div>
         </div>
     </main>
 
-
 @endsection
+@push('after-scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Profile dropdown functionality
+            const dropdownOpener = document.getElementById('dropdown-opener');
+            const dropdown = document.getElementById('dropdown');
+
+            if (dropdownOpener && dropdown) {
+                dropdownOpener.addEventListener('click', function() {
+                    dropdown.classList.toggle('hidden');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!dropdownOpener.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+@endpush

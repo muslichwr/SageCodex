@@ -1,0 +1,664 @@
+/* SageCodex Esports Learning Platform Styles */
+
+/* Root variables for theme colors */
+:root {
+  /* Light mode variables */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  
+  /* Light mode text variables */
+  --text-primary: 222.2 47.4% 11.2%;
+  --text-secondary: 215.4 16.3% 46.9%;
+  --text-muted: 215.4 16.3% 56.9%;
+  
+  /* Brand color variables */
+  --brand-primary: 174 59% 46%;
+  --brand-primary-dark: 174 70% 36%;
+  --brand-secondary: 240 57% 53%;
+  --brand-secondary-dark: 240 70% 43%;
+  --brand-accent: 27 95% 65%;
+  
+  /* Game-specific colors */
+  --lol-primary: 194 91% 46%;
+  --lol-secondary: 43 51% 56%;
+  --valorant-primary: 355 100% 64%;
+  --valorant-secondary: 212 47% 10%;
+  --csgo-primary: 50 93% 63%;
+  --csgo-secondary: 204 11% 14%;
+  --dota-primary: 355 100% 32%;
+  --dota-secondary: 204 11% 19%;
+  
+  /* Neutral colors */
+  --neutral-lightest: 210 40% 98%;
+  --neutral-light: 214 32% 91%;
+  --neutral-medium: 212 15% 69%;
+  --neutral-dark: 215.4 16.3% 46.9%;
+  --neutral-darker: 222.2 47.4% 11.2%;
+  --neutral-darkest: 222.2 84% 4.9%;
+  
+  /* Other variables */
+  --theme-transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode variables */
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  
+  /* Dark mode text variables */
+  --text-primary: 210 40% 98%;
+  --text-secondary: 215 25% 75%;
+  --text-muted: 215 25% 65%;
+  
+  /* Neutral colors in dark mode */
+  --neutral-lightest: 222.2 84% 4.9%;
+  --neutral-light: 215 25% 75%;
+  --neutral-medium: 212 15% 69%;
+  --neutral-dark: 217 10% 25%;
+  --neutral-darker: 215 28% 17%;
+  --neutral-darkest: 222.2 84% 4.9%;
+}
+
+/* Base styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+  color: hsl(var(--text-primary));
+  line-height: 1.5;
+}
+
+.dark body {
+  background-color: #050505;
+  color: hsl(var(--text-primary));
+}
+
+/* Theme transition classes */
+.theme-transition, .theme-transition * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gaming gradient text */
+.gaming-gradient {
+  background-image: linear-gradient(45deg, hsl(var(--brand-primary)), hsl(var(--brand-secondary)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Color utilities */
+.text-brand-primary {
+  color: hsl(var(--brand-primary));
+}
+
+.text-brand-secondary {
+  color: hsl(var(--brand-secondary));
+}
+
+.text-brand-accent {
+  color: hsl(var(--brand-accent));
+}
+
+.text-neutral-dark {
+  color: hsl(var(--text-primary));
+}
+
+.text-neutral-light {
+  color: hsl(var(--text-secondary));
+}
+
+.bg-neutral-light {
+  background-color: hsl(var(--neutral-light));
+}
+
+.bg-neutral-dark {
+  background-color: hsl(var(--neutral-dark));
+}
+
+.dark .bg-neutral-dark {
+  background-color: hsl(var(--neutral-darker));
+}
+
+.border-neutral-light {
+  border-color: hsl(var(--neutral-light));
+}
+
+.dark .border-neutral-dark {
+  border-color: hsl(var(--neutral-darker));
+}
+
+/* Esports game colors */
+.text-esports-lol-primary {
+  color: hsl(var(--lol-primary));
+}
+
+.text-esports-valorant-primary {
+  color: hsl(var(--valorant-primary));
+}
+
+.text-esports-csgo-primary {
+  color: hsl(var(--csgo-primary));
+}
+
+.text-esports-dota-primary {
+  color: hsl(var(--dota-primary));
+}
+
+.bg-esports-lol-primary {
+  background-color: hsl(var(--lol-primary));
+}
+
+.bg-esports-valorant-primary {
+  background-color: hsl(var(--valorant-primary));
+}
+
+.bg-esports-csgo-primary {
+  background-color: hsl(var(--csgo-primary));
+}
+
+.bg-esports-dota-primary {
+  background-color: hsl(var(--dota-primary));
+}
+
+.border-esports-lol-primary {
+  border-color: hsl(var(--lol-primary));
+}
+
+.border-esports-valorant-primary {
+  border-color: hsl(var(--valorant-primary));
+}
+
+.border-esports-csgo-primary {
+  border-color: hsl(var(--csgo-primary));
+}
+
+.border-esports-dota-primary {
+  border-color: hsl(var(--dota-primary));
+}
+
+/* Brand colors */
+.bg-brand-primary {
+  background-color: hsl(var(--brand-primary));
+}
+
+.border-brand-primary {
+  border-color: hsl(var(--brand-primary));
+}
+
+/* Navigation styles */
+.nav-link {
+  color: hsl(var(--text-primary));
+}
+
+.nav-link:hover {
+  color: hsl(var(--brand-primary));
+}
+
+.dark .nav-link {
+  color: hsl(var(--text-secondary));
+}
+
+.dark .nav-link:hover {
+  color: hsl(var(--brand-primary));
+}
+
+/* Skill badge styles */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.skill-badge-beginner {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: rgb(22, 163, 74);
+}
+
+.dark .skill-badge-beginner {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: rgb(134, 239, 172);
+}
+
+.skill-badge-intermediate {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: rgb(37, 99, 235);
+}
+
+.dark .skill-badge-intermediate {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: rgb(147, 197, 253);
+}
+
+.skill-badge-advanced {
+  background-color: rgba(168, 85, 247, 0.1);
+  color: rgb(147, 51, 234);
+}
+
+.dark .skill-badge-advanced {
+  background-color: rgba(168, 85, 247, 0.2);
+  color: rgb(216, 180, 254);
+}
+
+.skill-badge-pro {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: rgb(220, 38, 38);
+}
+
+.dark .skill-badge-pro {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: rgb(252, 165, 165);
+}
+
+/* Form elements */
+.form-input {
+  border: 1px solid hsl(var(--neutral-light));
+  background-color: white;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: hsl(var(--brand-primary));
+  box-shadow: 0 0 0 2px hsla(var(--brand-primary), 0.25);
+}
+
+.dark .form-input {
+  border-color: hsl(var(--neutral-darker));
+  background-color: hsl(var(--neutral-darkest));
+  color: white;
+}
+
+/* Toggle button */
+.toggle-button {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--neutral-light));
+  color: hsl(var(--text-primary));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .toggle-button {
+  background-color: hsl(var(--neutral-darker));
+  color: hsl(var(--text-primary));
+}
+
+/* Card hover effects */
+.hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .hover-scale:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Aspect ratio utilities */
+.aspect-16-9 {
+  aspect-ratio: 16/9;
+}
+
+/* Custom dark mode highlight */
+.dark .dark-highlight:hover {
+  background-color: hsla(var(--brand-primary), 0.1);
+  border-color: hsla(var(--brand-primary), 0.3);
+}
+
+/* Line clamp for truncating text */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Testimonial slider animation */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.slider-container {
+  animation: slide 50s linear infinite;
+}
+
+.slider-container:hover {
+  animation-play-state: paused;
+}
+
+/* FAQ accordion styles */
+.faq-button .fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+.faq-button .rotate-180 {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+}
+
+/* Pricing card hover effects */
+.pricing-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pricing-card:hover {
+  border-color: hsl(var(--brand-primary));
+}
+
+/* Testimonial card hover effects */
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark .testimonial-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   Course Learning Page Styles
+   ======================================== */
+
+/* Course content styles */
+.course-content img {
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+}
+
+.course-content h1 {
+    background-image: linear-gradient(45deg, hsl(var(--brand-primary)), hsl(var(--brand-secondary)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.course-content h2, .course-content h3 {
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: hsl(var(--brand-primary-dark));
+}
+
+.course-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.course-content ul, .course-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.25rem;
+}
+
+.course-content li {
+    margin-bottom: 0.5rem;
+}
+
+.course-content ul li {
+    list-style-type: disc;
+}
+
+.course-content ol li {
+    list-style-type: decimal;
+}
+
+.course-content blockquote {
+    border-left: 4px solid hsl(var(--brand-primary));
+    padding-left: 1rem;
+    font-style: italic;
+    margin: 1.5rem 0;
+}
+
+.course-content code {
+    background-color: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+}
+
+.course-content pre {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.course-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.course-content th, .course-content td {
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.course-content th {
+    background-color: #f7fafc;
+    font-weight: 600;
+}
+
+/* Custom scrollbar for lesson navigation */
+#lessons-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+#lessons-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#lessons-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+/* Video responsive container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 1.5rem 0;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+}
+
+/* Progress indicator */
+.progress-bar {
+    height: 0.25rem;
+    background: linear-gradient(90deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%);
+    transition: width 0.3s ease;
+}
+
+/* Highlight boxes */
+.highlight-box {
+    background-color: rgba(174, 59%, 46%, 0.05);
+    border-left: 4px solid hsl(var(--brand-primary));
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.highlight-box.warning {
+    background-color: rgba(250, 202, 21, 0.1);
+    border-left: 4px solid #f59e0b;
+}
+
+.highlight-box.pro-tip {
+    background-color: rgba(139, 92, 246, 0.1);
+    border-left: 4px solid #8b5cf6;
+}
+
+/* Annotations */
+.annotation {
+    position: relative;
+    display: inline-block;
+    border-bottom: 2px dotted hsl(var(--brand-primary));
+    cursor: help;
+}
+
+.annotation .tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.annotation:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Course layout - sidebar */
+.sidebar {
+    width: 260px;
+    transition: transform 0.3s ease;
+}
+
+/* Main content spacing */
+.main-content {
+    margin-left: 260px; /* Reduced from 288px (72*4) */
+}
+
+/* Lesson item improved hover animation */
+.lesson-item {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+/* Create a pseudo-element for the background transition */
+.lesson-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(var(--brand-primary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 9999px;
+}
+
+.lesson-item:hover::before {
+    opacity: 1;
+}
+
+/* Text color transition is separate from background */
+.lesson-item h3 {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.lesson-item:hover h3 {
+    color: white;
+}
+
+/* Active lesson item */
+.lesson-item.active {
+    background-color: hsl(var(--brand-primary));
+    border-color: hsl(var(--brand-primary));
+}
+
+.lesson-item.active h3 {
+    color: white;
+}
+
+/* Navigation footer position */
+.navigation-footer {
+    left: 260px; /* Match sidebar width */
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block !important;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: 40;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    .navigation-footer {
+        left: 0 !important;
+    }
+}
+
+/* Dark mode overrides for course content */
+@media (prefers-color-scheme: dark) {
+    .course-content code, .course-content pre {
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+    }
+    
+    .course-content th {
+        background-color: #1a202c;
+    }
+    
+    .course-content th, .course-content td {
+        border-color: #2d3748;
+    }
+} 

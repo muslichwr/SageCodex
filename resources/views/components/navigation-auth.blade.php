@@ -1,70 +1,64 @@
-<nav id="nav-auth" class="flex w-full bg-white border-b border-obito-grey">
-    <div class="flex w-[1280px] px-[75px] py-5 items-center justify-between mx-auto">
-        <div class="flex items-center gap-[30px]">
-            <a href="{{ route('front.index') }}" class="flex shrink-0">
-                <img src="{{ asset('assets/images/logos/logo.svg') }}" class="flex shrink-0" alt="logo">
+<nav class="border-b border-neutral-light dark:border-neutral-dark">
+    <div class="flex w-full max-w-7xl px-4 py-5 items-center justify-between mx-auto">
+        <div class="flex items-center gap-8">
+            <a href="{{ route('front.index') }}" class="flex items-center">
+                <span class="font-bold text-2xl gaming-gradient bg-clip-text text-transparent">SAGE<span class="text-brand-accent">CODEX</span></span>
             </a>
-            <form action="search-course.html" class="relative ">
-                <label class="group">
-                    <input type="text" name="" id=""
-                        class="appearance-none outline-none ring-1 ring-obito-grey rounded-full w-[400px]  py-[14px] px-5 bg-white font-bold placeholder:font-normal placeholder:text-obito-text-secondary group-focus-within:ring-obito-green transition-all duration-300 pr-[50px]"
-                        placeholder="Search course by name">
-                    <button type="submit"
-                        class="absolute right-0 top-0 h-[52px] w-[52px] flex shrink-0 items-center justify-center">
-                        <img src="{{ asset('assets/images/icons/search-normal-green-fill.svg') }}"
-                            class="flex shrink-0 w-10 h-10" alt="">
-                    </button>
-                </label>
+            <form method="GET" action="{{ route('dashboard.search.courses') }}" class="relative hidden md:block">
+                <div class="flex items-center">
+                    <input type="text" name="search" id="" class="form-input pl-10 pr-4 py-2 w-80 rounded-full" placeholder="Search for courses, coaches, or games">
+                    <i class="fas fa-search absolute left-3 text-neutral-dark dark:text-neutral-light"></i>
+                </div>
             </form>
         </div>
-        <div class="flex items-center gap-5 justify-end">
-            <a href="#" class="flex shrink-0">
-                <img src="{{ asset('assets/images/icons/device-message.svg') }}" class="flex shrink-0" alt="icon">
+
+        <div class="flex items-center gap-5">
+            <a href="#" class="nav-link hidden sm:flex">
+                <i class="fas fa-envelope text-xl"></i>
             </a>
-            <a href="catalog-v2.html" class="flex shrink-0">
-                <img src="{{ asset('assets/images/icons/category.svg') }}" class="flex shrink-0" alt="icon">
+            <a href="course-catalog.html" class="nav-link hidden sm:flex">
+                <i class="fas fa-th text-xl"></i>
             </a>
-            <a href="#" class="flex shrink-0">
-                <img src="{{ asset('assets/images/icons/notification.svg') }}" class="flex shrink-0" alt="icon">
+            <a href="#" class="nav-link hidden sm:flex">
+                <i class="fas fa-bell text-xl"></i>
             </a>
-            <div class="h-[50px] flex shrink-0 bg-obito-grey w-px"></div>
-            <div id="profile-dropdown" class="relative flex items-center gap-[14px]">
-                <div class="flex shrink-0 w-[50px] h-[50px] rounded-full overflow-hidden bg-obito-grey">
-                    <img src="{{ Storage::url($user->photo) }}" class="w-full h-full object-cover" alt="photo">
+            <div class="border-l h-8 border-neutral-light dark:border-neutral-dark hidden sm:block"></div>
+            <div id="profile-dropdown" class="relative flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full overflow-hidden bg-neutral-light dark:bg-neutral-dark">
+                    <img src="{{ Storage::url($user->photo) }}" class="w-full h-full object-cover" alt="Profile picture">
                 </div>
-                <div>
-                    <p class="font-semibold text-lg">{{ $user->name }}</p>
-                    <p class="text-sm text-obito-text-secondary">{{ $user->occupation }}</p>
+                <div class="hidden sm:block">
+                    <p class="font-semibold">{{ $user->name }}</p>
+                    <p class="text-sm text-neutral-dark dark:text-neutral-light">{{ $user->occupation }}</p>
                 </div>
-                <button id="dropdown-opener" class="flex shrink-0 w-6 h-6">
-                    <img src="{{ asset('assets/images/icons/arrow-circle-down.svg') }}" class="w-6 h-6" alt="icon">
+                <button id="dropdown-opener" class="flex items-center justify-center">
+                    <i class="fas fa-chevron-down"></i>
                 </button>
-                <div id="dropdown"
-                    class="absolute top-full right-0 mt-[7px] w-[170px] h-fit bg-white rounded-xl border border-obito-grey py-4 px-5 shadow-[0px_10px_30px_0px_#B8B8B840] z-10 hidden">
-                    <ul class="flex flex-col gap-[14px]">
-                        <li class="hover:text-obito-green transition-all duration-300">
-                            <a href="{{ route('dashboard') }}">My Courses</a>
+                <div id="dropdown" class="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-neutral-dark rounded-xl border border-neutral-light dark:border-neutral-darker py-4 px-5 shadow-lg z-10 hidden">
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="nav-link">My Courses</a>
                         </li>
-                        <li class="hover:text-obito-green transition-all duration-300">
-                            <a href="#">Certificates</a>
+                        <li>
+                            <a href="#" class="nav-link">Coaching Sessions</a>
                         </li>
-                        <li class="hover:text-obito-green transition-all duration-300">
-                            <a href="{{ route('dashboard.subscriptions') }}">Subscriptions</a>
+                        <li>
+                            <a href="{{ route('dashboard.subscriptions') }}" class="nav-link">Subscriptions</a>
                         </li>
-                        <li class="hover:text-obito-green transition-all duration-300">
-                            <a href="#">Settings</a>
+                        <li>
+                            <a href="#" class="nav-link">Settings</a>
                         </li>
-                        <li class="hover:text-obito-green transition-all duration-300">
+                        <li class="border-t border-neutral-light dark:border-neutral-darker pt-2">
+                            <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
                                 <a href="route('logout')"
-                                    onclick="event.preventDefault();
+                                        onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                     {{ __('Logout') }}
-                                </a>
-                            </form>
-                        </li>
+                            </a>
+                            </form>                        </li>
                     </ul>
                 </div>
             </div>
