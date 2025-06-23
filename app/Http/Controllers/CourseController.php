@@ -19,20 +19,20 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courseByCategory = $this->courseService->getCoursesGroupedByCategory();
-        return view('courses.index', compact('courseByCategory'));
+        $coursesByCategory = $this->courseService->getCoursesGroupedByCategory();
+        return view('courses.index', compact('coursesByCategory'));
     }
 
     // public function index()
     // {
-    //     $courseByCategory = Course::with('category')
+    //     $coursesByCategory = Course::with('category')
     //     ->latest()
     //     ->get()
     //     ->groupBy(function ($course) {
     //         return $course->category->name ?? 'Uncategorized';
     //     });
 
-    //     return view('courses.index', compact('courseByCategory'));
+    //     return view('courses.index', compact('coursesByCategory'));
     // }
 
     public function details(Course $course)

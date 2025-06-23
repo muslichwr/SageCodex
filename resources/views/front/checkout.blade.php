@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'Checkout - Obito BuildWithAngga')
+@section('title', 'Checkout - SageCodex')
 @section('content')
     <x-navigation-auth />
     <div class="border-b border-neutral-light dark:border-neutral-dark py-3">

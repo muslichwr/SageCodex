@@ -92,6 +92,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Apply proper styling to the initially active tab
+    function initializeActiveTabs() {
+        // Find the first tab button or the one marked as active
+        const initialActiveTab = document.querySelector('.tab-btn.tab-active') || document.querySelector('.tab-btn:first-child');
+        if (initialActiveTab) {
+            const activeDiv = initialActiveTab.querySelector('div');
+            if (activeDiv) {
+                // Apply active styling
+                activeDiv.classList.add('bg-brand-primary');
+                activeDiv.classList.add('text-white');
+                activeDiv.classList.remove('bg-white');
+                activeDiv.classList.remove('dark:bg-neutral-dark');
+            }
+        }
+    }
+
+    // Initialize tabs when page loads
+    initializeActiveTabs();
 });
 
 // Filter function for search functionality
