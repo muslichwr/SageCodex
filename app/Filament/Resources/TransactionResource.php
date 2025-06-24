@@ -55,17 +55,17 @@ class TransactionResource extends Resource
                             ->live()
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $pricing = Pricing::find($state);
-
-                                $price = $pricing->price;
-                                $duration = $pricing->duration;
-
-                                $subTotal = $price * $state;
-                                $totalPpn = $subTotal * 0.12;
-                                $totalAmount = $subTotal + $totalPpn;
-
+                            
+                                $price = $pricing->price; // get the price
+                                $duration = $pricing->duration; // get the duration
+                            
+                                $subTotal = $price; // ✅ BENAR: subtotal = harga saja
+                                $totalPpn = $subTotal * 0.12; // get the total ppn (12%)
+                                $totalAmount = $subTotal + $totalPpn; // get the total amount
+                            
                                 $set('total_tax_amount', $totalPpn);
                                 $set('grand_total_amount', $totalAmount);
-                                $set('sub_total_amount', $price);
+                                $set('sub_total_amount', $subTotal); // ubah dari $price ke $subTotal
                                 $set('duration', $duration);
                             })
                             ->afterStateHydrated(function (callable $set, $state) {
@@ -73,7 +73,7 @@ class TransactionResource extends Resource
                                 if ($pricingId) {
                                     $pricing = Pricing::find($pricingId);
                                     $duration = $pricing->duration;
-                                    $set('duration', $duration); 
+                                    $set('duration', $duration);
                                 }
                             }),
 

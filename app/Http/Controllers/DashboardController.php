@@ -24,7 +24,7 @@ class DashboardController extends Controller
 
     public function subscription_details(Transaction $transaction)
     {
-        return view ('front.subscription-details', compact('transaction'));
+        return view ('front.subscription_details', compact('transaction'));
     }
 }
 

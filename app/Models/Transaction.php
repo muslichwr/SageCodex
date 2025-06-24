@@ -23,7 +23,7 @@ class Transaction extends Model
         'ended_at',
     ];
 
-    protected $cast = [
+    protected $casts = [
         'started_at' => 'date',
         'ended_at' => 'date',
     ];

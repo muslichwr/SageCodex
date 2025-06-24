@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('/css/output.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/content.css') }}" rel="stylesheet">
     @stack('after-styles')
     <title>@yield('title') - SageCodex Esports Learning Platform</title>
     <meta name="description" content="Your purchase has been completed successfully on SageCodex, the premier esports learning platform.">

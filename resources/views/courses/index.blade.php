@@ -160,7 +160,7 @@
 
 @endsection
 @push('after-scripts')
-    <script src="js/tabs.js"></script>
+<script src="{{ asset('js/tabs.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Profile dropdown functionality

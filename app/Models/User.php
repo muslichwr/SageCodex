@@ -67,14 +67,14 @@ class User extends Authenticatable implements FilamentUser
         return $this->transactions()
             ->where('is_paid', true)
             ->where('ended_at', '>=', now())
-            ->first();
+            ->first(); // return details of subscription
     }
 
     public function hasActiveSubscription()
     {
         return $this->transactions()
             ->where('is_paid', true)
-            ->where('ended_at', '>=', now())
-            ->exist();
+            ->where('ended_at', '>=', now()) // Ensure the subscription is still active
+            ->exists(); // return boolean
     }
 }

@@ -48,25 +48,24 @@ class CourseService
         $currentSection = $course->courseSections->find($contentSectionId);
         $currentContent = $currentSection ? $currentSection->sectionContents->find($sectionContentId) : null;
 
+        // Determine next content
         $nextContent = null;
 
         if ($currentContent) {
-            $nextContent = $currentContent->sectionContents
-            ->where('id', '>', $currentContent->id)
-            ->sortBy('id')
-            ->first();
+            $nextContent = $currentSection->sectionContents
+                ->where('id', '>', $currentContent->id)
+                ->sortBy('id')
+                ->first();
         }
 
         if (!$nextContent && $currentSection) {
             $nextSection = $course->courseSections
-            ->where('id', '>', $currentSection->id)
-            ->sortBy('id')
-            ->first();
-
-            if ($nextSection) {
-                $nextContent = $nextSection->sectionContents
+                ->where('id', '>', $currentSection->id)
                 ->sortBy('id')
                 ->first();
+
+            if ($nextSection) {
+                $nextContent = $nextSection->sectionContents->sortBy('id')->first();
             }
         }
 
@@ -77,6 +76,7 @@ class CourseService
             'nextContent' => $nextContent,
             'isFinished' => !$nextContent,
         ];
+
     }
 
     public function searchCourses(string $keyword)
